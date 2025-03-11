@@ -3,11 +3,11 @@ import { updateContact } from '../contacts';
 
 export async function action({ request, params }) {
   const formData = await request.formData();
-  const firstName = formData.get('first');
-  const lastName = formData.get('last');
+  const firstName = formData.get("first");
+  const lastName = formData.get("last");
   const updates = Object.fromEntries(formData);
-  updates.first;
-  updates.last;
+  updates.first; // "Some"
+  updates.last; // "Name"
   await updateContact(params.contactId, updates);
   return redirect(`/contacts/${params.contactId}`);
 }
@@ -16,7 +16,7 @@ export default function EditContact() {
   const navigate = useNavigate();
 
   return (
-    <Form method="post" action="destroy" id="contact-form">
+    <Form method="post" id="contact-form">
       <p>
         <span>Name</span>
         <input
